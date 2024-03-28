@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jun 16 11:54:08 2023
+
+@author: gowth
+"""
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+%matplotlib inline
+
+df=pd.read_csv(r"C:\Users\gowth\Downloads\Mall_Customers.csv")
+
+sns.countplot(df['Gender'])
+
+
+columns=['Age','Annual Income (k$)','Spending Score (1-100)']
+for i in columns:
+    plt.figure()
+    sns.distplot(df[i])
+    
+    
+df=df.drop('CustomerID',axis=1)
+sns.pairplot(df)
